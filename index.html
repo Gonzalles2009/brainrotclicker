@@ -7,8 +7,23 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!-- Pin Code Screen -->
+    <div id="pin-screen" class="pin-screen">
+        <div class="pin-container">
+            <h1>Brainrot Clicker</h1>
+            <p>Enter the secret code to access the game</p>
+            <div class="pin-input-container">
+                <input type="password" id="pin-input" placeholder="Enter pin code..." maxlength="20">
+                <button id="pin-submit" onclick="checkPin()">Enter</button>
+            </div>
+            <div id="pin-error" class="pin-error" style="display: none;">
+                Wrong code! Try again...
+            </div>
+        </div>
+    </div>
+
     <div id="glow-overlay"></div>
-    <div class="game-container">
+    <div class="game-container" id="game-container" style="display: none;">
         <!-- Main game area with integrated header -->
         <div class="main-content">
             <!-- Header with stats -->
@@ -16,14 +31,20 @@
                 <div class="stats-panel">
                     <!-- Big Counter in Header -->
                     <div class="header-counter">
-                        <div class="counter-header">
-                            <span class="counter-icon">☕</span>
-                            <span class="counter-label">Brainrot Points</span>
+                        <div class="header-spacer"></div>
+                        <div class="counter-center">
+                            <div class="counter-header">
+                                <span class="counter-icon">☕</span>
+                                <span class="counter-label">Brainrot Points</span>
+                            </div>
+                            <div class="counter-display" id="central-counter">
+                                <!-- Будет заполнено JavaScript'ом с нужным количеством разрядов -->
+                            </div>
                         </div>
-                        <div class="counter-display" id="central-counter">
-                            <!-- Будет заполнено JavaScript'ом с нужным количеством разрядов -->
+                        <div class="header-buttons">
+                            <button onclick="logoutGame()" class="reset-btn-header">🚪</button>
+                            <button onclick="resetGame()" class="reset-btn-header">🗑️</button>
                         </div>
-                        <button onclick="resetGame()" class="reset-btn-header">🗑️</button>
                     </div>
                 </div>
             </div>

@@ -820,23 +820,36 @@ function updateCentralCounterTheme() {
     if (headerCounter) {
         // Убираем все классы тем у счетчика
         headerCounter.classList.remove('golden-active', 'frenzy-active', 'triumph-active');
+        
+        // Принудительно сбрасываем все inline стили которые могут мешать
+        headerCounter.style.background = '';
+        headerCounter.style.boxShadow = '';
+        
+        // Добавляем класс в зависимости от активного события
+        if (gameState.triumphBonus.active) {
+            headerCounter.classList.add('triumph-active');
+        } else if (gameState.goldenCappuccino.active) {
+            headerCounter.classList.add('golden-active');
+        } else if (gameState.brainrotFrenzy.active) {
+            headerCounter.classList.add('frenzy-active');
+        }
+        
+        // Принудительно перерисовываем элемент
+        headerCounter.offsetHeight; // Триггер reflow
     }
     
     if (activeEffectGroup) {
         // Убираем все классы тем у группы ивентов
         activeEffectGroup.classList.remove('golden-active', 'frenzy-active', 'triumph-active');
-    }
-    
-    // Добавляем класс в зависимости от активного события
-    if (gameState.triumphBonus.active) {
-        if (headerCounter) headerCounter.classList.add('triumph-active');
-        if (activeEffectGroup) activeEffectGroup.classList.add('triumph-active');
-    } else if (gameState.goldenCappuccino.active) {
-        if (headerCounter) headerCounter.classList.add('golden-active');
-        if (activeEffectGroup) activeEffectGroup.classList.add('golden-active');
-    } else if (gameState.brainrotFrenzy.active) {
-        if (headerCounter) headerCounter.classList.add('frenzy-active');
-        if (activeEffectGroup) activeEffectGroup.classList.add('frenzy-active');
+        
+        // Добавляем класс в зависимости от активного события
+        if (gameState.triumphBonus.active) {
+            activeEffectGroup.classList.add('triumph-active');
+        } else if (gameState.goldenCappuccino.active) {
+            activeEffectGroup.classList.add('golden-active');
+        } else if (gameState.brainrotFrenzy.active) {
+            activeEffectGroup.classList.add('frenzy-active');
+        }
     }
 } 
 
@@ -1006,6 +1019,14 @@ function initEvolutionNextButton() {
             
             // Генерируем новые кирпичи сразу (закрываем нового персонажа)
             generateBrickPattern();
+            
+            // Сбрасываем все активные эффекты чтобы не мешали переключению
+            gameState.triumphBonus.active = false;
+            gameState.goldenCappuccino.active = false;
+            gameState.brainrotFrenzy.active = false;
+            
+            // Убираем мигание фона - форсируем сохранение базового стиля
+            updateCentralCounterTheme();
             
             // ВАЖНО: Сохраняем игру после переключения персонажа!
             if (typeof saveGame === 'function') {

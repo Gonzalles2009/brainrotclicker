@@ -1,3 +1,39 @@
+// Pin Code Protection
+const GAME_PIN = "123456"; // Simple pin code
+
+function checkPin() {
+    const input = document.getElementById('pin-input');
+    const error = document.getElementById('pin-error');
+    const pinValue = input.value.toLowerCase().trim();
+    
+    if (pinValue === GAME_PIN) {
+        // Correct pin - show game and hide pin screen
+        localStorage.setItem('brainrot_pin_verified', 'true');
+        document.getElementById('pin-screen').style.display = 'none';
+        document.getElementById('game-container').style.display = 'block';
+        initActualGame(); // Initialize the game
+    } else {
+        // Wrong pin - show error
+        error.style.display = 'block';
+        input.value = '';
+        input.focus();
+        setTimeout(() => {
+            error.style.display = 'none';
+        }, 3000);
+    }
+}
+
+// Check if already verified
+function checkPinVerification() {
+    const verified = localStorage.getItem('brainrot_pin_verified');
+    if (verified === 'true') {
+        document.getElementById('pin-screen').style.display = 'none';
+        document.getElementById('game-container').style.display = 'block';
+        return true;
+    }
+    return false;
+}
+
 let gameLoopInterval = null;
 let saveInterval = null;
 
@@ -226,6 +262,10 @@ function updateSpecialEvents() {
         if (gameState.triumphBonus.timeLeft <= 0) {
             gameState.triumphBonus.active = false;
             // The glow for triumph is a one-shot animation, so no need to turn it off here.
+            // Принудительно обновляем тему счетчика после окончания triumph
+            if (typeof updateCentralCounterTheme === 'function') {
+                updateCentralCounterTheme();
+            }
         }
     }
 
@@ -312,6 +352,11 @@ function updateEvolutionProgress() {
 }
 
 function checkTriumphs() {
+    // Не активируем триумфы во время эволюции чтобы не мешать визуалам
+    if (gameState.evolutionPaused) {
+        return;
+    }
+    
     gameState.triumphs.forEach(triumph => {
         if (!triumph.triggered) {
             let currentValue = 0;
@@ -402,7 +447,10 @@ function loadGame() {
         
         gameState.startTime = Date.now() - gameState.playtime * 1000;
         
-        // Clean up any running animations and effects
+        // Clean up any running animations and effects and reset all temporary bonuses
+        gameState.triumphBonus.active = false;
+        gameState.goldenCappuccino.active = false;
+        gameState.brainrotFrenzy.active = false;
         updateGlowEffect('golden', false);
         updateGlowEffect('frenzy', false);
         updateGlowEffect('triumph', false);
@@ -418,6 +466,34 @@ function loadGame() {
         } else {
             console.error('updateCharacterDisplay function not found!');
         }
+        
+        // Принудительно обновляем тему счетчика после загрузки
+        if (typeof updateCentralCounterTheme === 'function') {
+            updateCentralCounterTheme();
+        }
+    }
+}
+
+function logoutGame() {
+    // Stop game loops
+    clearInterval(gameLoopInterval);
+    clearInterval(saveInterval);
+    
+    // Save current game state
+    saveGame();
+    
+    // Remove pin verification
+    localStorage.removeItem('brainrot_pin_verified');
+    
+    // Hide game and show pin screen
+    document.getElementById('game-container').style.display = 'none';
+    document.getElementById('pin-screen').style.display = 'flex';
+    
+    // Clear and focus pin input
+    const pinInput = document.getElementById('pin-input');
+    if (pinInput) {
+        pinInput.value = '';
+        pinInput.focus();
     }
 }
 
@@ -439,7 +515,7 @@ function resetGame() {
 }
 
 // Initialize Game
-function initGame() {
+function initActualGame() {
     // Try to load saved game
     loadGame();
     
@@ -511,6 +587,26 @@ function initGame() {
         updateCharacterDisplay();
     } else {
         console.error('updateCharacterDisplay function not found in initGame!');
+    }
+}
+
+// Initialize game (called when page loads)
+function initGame() {
+    // Set up pin input event listener
+    const pinInput = document.getElementById('pin-input');
+    if (pinInput) {
+        pinInput.addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                checkPin();
+            }
+        });
+        pinInput.focus(); // Auto-focus pin input
+    }
+    
+    // Check if already verified
+    if (checkPinVerification()) {
+        // If verified, start the actual game
+        initActualGame();
     }
 }
 

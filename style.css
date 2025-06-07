@@ -5,6 +5,111 @@
     box-sizing: border-box;
 }
 
+/* Pin Code Screen */
+.pin-screen {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10000;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.pin-container {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255, 255, 255, 0.2);
+}
+
+.pin-container h1 {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.pin-container p {
+    color: #34495e;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+.pin-input-container {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#pin-input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 2px solid #bdc3c7;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+#pin-input:focus {
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.1);
+}
+
+#pin-submit {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #3498db, #2980b9);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+}
+
+#pin-submit:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(52, 152, 219, 0.3);
+}
+
+#pin-submit:active {
+    transform: translateY(0);
+}
+
+.pin-error {
+    color: #e74c3c;
+    font-weight: bold;
+    margin-bottom: 10px;
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    75% { transform: translateX(5px); }
+}
+
+.pin-hint {
+    color: #7f8c8d;
+    font-style: italic;
+}
+
+.pin-hint small {
+    font-size: 14px;
+}
+
 body {
     font-family: 'Comic Sans MS', cursive, sans-serif;
     background: linear-gradient(135deg, #ff9a8b 0%, #fad0c4 50%, #ffecd2 100%);
@@ -1763,11 +1868,29 @@ body {
     margin: 0 3px;
 }
 
+.header-spacer {
+    width: 82px; /* Ширина кнопок + gap = 38px + 8px + 38px */
+    flex-shrink: 0;
+}
+
+.counter-center {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex: 1;
+}
+
+.header-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    flex-shrink: 0;
+    width: 82px; /* Фиксированная ширина для балансировки */
+    justify-content: flex-end;
+}
+
 .reset-btn-header {
-    position: absolute;
-    right: 10px;
-    top: 50%;
-    transform: translateY(-50%);
     background: rgba(255, 255, 255, 0.1);
     border: none;
     border-radius: 8px;
@@ -1785,40 +1908,10 @@ body {
 .reset-btn-header:hover {
     background: rgba(255, 82, 82, 0.8);
     box-shadow: 0 0 15px rgba(255, 82, 82, 0.7);
-    transform: translateY(-50%) scale(1.1);
+    transform: scale(1.05);
 }
 
-/* Эффекты при активных событиях для header счетчика */
-.header-counter.golden-active {
-    background: linear-gradient(135deg, #f7b733 0%, #fc4a1a 100%);
-        box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.15),
-        0 0 30px rgba(247, 183, 51, 0.6);
-}
-
-.header-counter.frenzy-active {
-    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%);
-    box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.15),
-        0 0 30px rgba(255, 65, 108, 0.6);
-}
-
-.header-counter.triumph-active {
-    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
-    box-shadow: 
-        0 8px 25px rgba(0, 0, 0, 0.2),
-        0 0 30px rgba(255, 255, 255, 0.8);
-}
-
-.header-counter.triumph-active .counter-label,
-.header-counter.triumph-active .digit {
-    color: #2d3436;
-    text-shadow: 
-        1px 1px 2px rgba(255, 255, 255, 0.8),
-        0 0 8px rgba(0, 0, 0, 0.3);
-}
-
-/* Счетчик в header (ультра-компактная версия) */
+/* Счетчик в header (ультра-компактная версия) - БАЗОВЫЙ СТИЛЬ */
 .header-counter {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 12px;
@@ -1833,9 +1926,35 @@ body {
     width: 100%;
     display: flex;
     align-items: center;
-    justify-content: center;
-    gap: 12px;
     min-height: 46px;
+}
+
+/* Эффекты при активных событиях для header счетчика - МОДИФИКАТОРЫ */
+.header-counter.golden-active {
+    background: linear-gradient(135deg, #f7b733 0%, #fc4a1a 100%) !important;
+        box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        0 0 30px rgba(247, 183, 51, 0.6) !important;
+}
+
+.header-counter.frenzy-active {
+    background: linear-gradient(135deg, #ff416c 0%, #ff4b2b 100%) !important;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        0 0 30px rgba(255, 65, 108, 0.6) !important;
+}
+
+.header-counter.triumph-active {
+    background: linear-gradient(135deg, #00b894 0%, #00cec9 100%) !important;
+    box-shadow: 
+        0 8px 25px rgba(0, 0, 0, 0.15),
+        0 0 30px rgba(0, 184, 148, 0.6) !important;
+}
+
+.header-counter.triumph-active .counter-label,
+.header-counter.triumph-active .digit {
+    color: #ffffff !important;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8) !important;
 }
 
 .header-counter .counter-header {
