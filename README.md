@@ -21,12 +21,12 @@ Italian Brainrot Clicker is a browser-based incremental/idle game where you:
 - **Click Intensity System**: Build momentum for temporary generator boosts
 
 ### 🎭 Character Evolution
-Progress through 5 characters inspired by viral "Italian Brainrot" AI memes:
-1. **Ballerina Cappuccina** - Based on the viral TikTok AI meme of a ballerina with a coffee cup head
-2. **Espresso Romano** - Inspired by Italian brainrot animals trend 
-3. **Macchiato Magnifico** - Part of the AI-generated Italian coffee character series
-4. **Latte Lorenzo** - Following the Italian brainrot aesthetic and themes
-5. **Affogato Anarchist** - Continuing the absurdist AI Italian coffee meme tradition
+Progress through 5 characters based on viral "Italian Brainrot" AI memes:
+1. **[Ballerina Cappuccina](https://knowyourmeme.com/memes/ballerina-cappuccina-italian-brainrot)** - Coffee cup ballerina from viral TikTok AI memes
+2. **[Bombardiro Crocodilo](https://knowyourmeme.com/memes/bombardiro-crocodilo-italian-brainrot)** - Flying crocodile bomber plane hybrid
+3. **Tung Tung Tung Sahur** - Indonesian brainrot character (crossover with Italian memes)
+4. **[Trippi Troppi/Trulimero Trulichina](https://knowyourmeme.com/memes/trippi-troppi-trulimero-trulichina-italian-brainrot)** - Fish-bear hybrid with sigma energy
+5. **[Brr Brr Patapim](https://knowyourmeme.com/memes/brr-brr-patapim)** - Tree-monkey hybrid with large feet and mysterious hat
 
 ### 🎨 Visual Effects
 - **Dynamic intensity meter** with color-coded levels (CHILL → WARM → HOT → FEVER → BRAINROT!)
@@ -93,11 +93,11 @@ brainrotclicker/
 ├── ui.js               # User interface and visual effects
 ├── gameState.js        # Save/load system and game state
 ├── brainrot/           # Character images
-│   ├── 1.jpg           # Ballerina Cappuccina
-│   ├── 2.jpg           # Espresso Romano  
-│   ├── 3.jpg           # Macchiato Magnifico
-│   ├── 4.jpg           # Latte Lorenzo
-│   └── 5.jpg           # Affogato Anarchist
+│   ├── 1.jpg           # Bombardiro Crocodilo
+│   ├── 2.jpg           # Tung Tung Tung Sahur  
+│   ├── 3.jpg           # Trippi Troppi/Trulimero Trulichina
+│   ├── 4.jpg           # Brr Brr Patapim
+│   └── 5.jpg           # Ballerina Cappuccina
 ├── .gitignore          # Git ignore rules
 └── README.md           # This documentation
 ```
@@ -210,11 +210,11 @@ Open source project - feel free to use, modify, and share!
 ## 🎮 Credits
 
 - **Game Design**: Internet meme culture meets Italian coffee meets incremental gaming
-- **Character Inspiration**: [Ballerina Cappuccina](https://knowyourmeme.com/memes/ballerina-cappuccina-italian-brainrot) and [Italian Brainrot AI Animals](https://knowyourmeme.com/memes/italian-brainrot-ai-italian-animals) viral TikTok memes
-- **Original Meme Creators**: @alexey_pigeon, @ncracfbcr4x and other Italian Brainrot TikTok creators
-- **Art Style**: Minimalist with maximum chaos
+- **Character Inspiration**: Based on real viral [Italian Brainrot AI Animals](https://knowyourmeme.com/memes/italian-brainrot-ai-italian-animals) memes from TikTok
+- **Meme Sources**: Ballerina Cappuccina, Bombardiro Crocodilo, Brr Brr Patapim, and other Italian Brainrot characters
+- **Art Style**: Minimalist with maximum chaos (and AI-generated absurdity)
 - **Sound**: Silent but deadly (clicking sounds)
-- **Inspiration**: Cookie Clicker, Adventure Capitalist, and way too much espresso
+- **Inspiration**: Cookie Clicker, Adventure Capitalist, and way too much TikTok brainrot
 
 ---
 
