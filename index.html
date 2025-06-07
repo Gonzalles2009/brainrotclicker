@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italian Brainrot Clicker - Ballerina Cappuccina Edition</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="glow-overlay"></div>
+    <div class="game-container">
+        <!-- Main game area with integrated header -->
+        <div class="main-content">
+            <!-- Header with stats -->
+            <div class="header">
+                <div class="stats-panel">
+                    <!-- Big Counter in Header -->
+                    <div class="header-counter">
+                        <div class="counter-header">
+                            <span class="counter-icon">☕</span>
+                            <span class="counter-label">Brainrot Points</span>
+                        </div>
+                        <div class="counter-display" id="central-counter">
+                            <!-- Будет заполнено JavaScript'ом с нужным количеством разрядов -->
+                        </div>
+                        <button onclick="resetGame()" class="reset-btn-header">🗑️</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Game content area -->
+            <div class="game-content">
+            <!-- Контейнер для волн по всему полю -->
+            <div class="click-waves-container" id="click-waves"></div>
+            
+            <!-- Left panel - All Purchases -->
+            <div class="left-panel">
+                <h2>🛒 Shop</h2>
+                <div id="shop-list" class="shop-list">
+                    <!-- All purchases will be populated by JS -->
+                </div>
+            </div>
+
+            <!-- Center panel - Main character -->
+            <div class="center-panel">
+                
+                    <div class="stats-row">
+                        <div class="stat-group">
+                            <span id="click-power">+1</span> per click
+                        </div>
+                        <div class="stat-separator">|</div>
+                        <div class="stat-group">
+                            <span class="stat-icon">📈</span>
+                            <span id="cps">0</span> Auto BP/sec
+                        </div>
+                        <div class="stat-separator">|</div>
+                        <div class="stat-group">
+                            <span class="stat-icon">💰</span>
+                            <span id="total-earned">0</span> Total BP/sec
+                        </div>
+                        <div class="stat-separator">|</div>
+                        <div class="stat-group active-effect-group">
+                            <span class="stat-icon">✨</span>
+                            <span id="active-effect">None</span>
+                        </div>
+                    </div>
+                    
+                    <div class="character-area">
+                        <!-- Left Intensity Meter - Vertical -->
+                        <div class="intensity-meter-left">
+                            <div class="intensity-meter-vertical">
+                                <div class="meter-header-vertical">
+                                    <span class="intensity-bonus-vertical" id="intensity-bonus">x1.0</span>
+                                </div>
+                                <div class="meter-bar-container-vertical">
+                                    <div class="meter-bar-background-vertical">
+                                        <div class="meter-bar-fill-vertical" id="intensity-fill"></div>
+                                        <div class="intensity-particles-vertical" id="intensity-particles"></div>
+                                    </div>
+                                    <div class="meter-scale-vertical">
+                                        <span class="scale-mark-vertical">CHILL</span>
+                                        <span class="scale-mark-vertical">WARM</span>
+                                        <span class="scale-mark-vertical">HOT</span>
+                                        <span class="scale-mark-vertical">FEVER</span>
+                                        <span class="scale-mark-vertical">BRAINROT!</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Circular Generator Container -->
+                        <div id="generator-circle" class="generator-circle">
+                            <!-- Generators will be positioned around the circle -->
+                        </div>
+                        
+                        <div class="main-character" id="main-character">
+                            <img id="character-image" src="brainrot/5.jpg" alt="Ballerina Cappuccina">
+                            <div class="brick-overlay" id="brick-overlay">
+                                <!-- Кирпичи будут генерироваться JS -->
+                            </div>
+                            <div class="click-effects" id="click-effects"></div>
+                        </div>
+
+                        <!-- Right Evolution Progress - Vertical -->
+                        <div class="evolution-meter-right">
+                            <div class="evolution-header-vertical">
+                            </div>
+                            <div class="evolution-bar-container-vertical">
+                                <div class="evolution-bar-background-vertical">
+                                    <div class="evolution-bar-fill-vertical" id="evolution-progress"></div>
+                                </div>
+                            </div>
+                            <div class="evolution-text-vertical" id="evolution-text">Evolution Progress</div>
+                        </div>
+                        <div class="character-info-moved">
+                            <h2 id="character-name">Ballerina Cappuccina</h2>
+                            <p id="character-desc">Cappuccino-head queen serving daily dose of caffeine chaos</p>
+                        </div>
+                    </div>
+                    
+                    <button id="evolution-next-btn" class="evolution-next-btn" style="display: none;">
+                        🚀 NEXT CHARACTER
+                    </button>
+            </div>
+            </div>
+        </div>
+        
+        <!-- Floating numbers container -->
+        <div id="floating-numbers"></div>
+    </div>
+
+    <script src="gameState.js"></script>
+    <script src="ui.js"></script>
+    <script src="main.js"></script>
+</body>
+</html> 
