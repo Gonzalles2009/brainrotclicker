@@ -1,15 +1,15 @@
-# 🇮🇹 Italian Brainrot Clicker
+# 🧠 Brainrot Clicker
 
-An absurd incremental clicker game inspired by the viral "Italian Brainrot" AI meme phenomenon. Features characters based on popular TikTok AI-generated Italian coffee animals. Click your way through evolution stages while building an empire of caffeine-powered generators!
+An absurd incremental clicker game inspired by viral AI meme phenomena. Features characters based on popular TikTok AI-generated memes. Click your way through evolution stages while building an empire of caffeine-powered generators!
 
 ## 🎮 Game Overview
 
-Italian Brainrot Clicker is a browser-based incremental/idle game where you:
+Brainrot Clicker is a browser-based incremental/idle game where you:
 - Click to earn **Brainrot Points (BP)**
 - Purchase generators that automatically earn BP over time
 - Buy upgrades to increase your clicking power and generator efficiency
 - Build up **click intensity** for temporary bonuses
-- **Evolve through 5 meme-inspired Italian coffee characters**
+- **Evolve through 5 meme-inspired characters**
 - Watch your character's world crumble with special brick-breaking effects!
 
 ## 🌟 Key Features
@@ -21,7 +21,7 @@ Italian Brainrot Clicker is a browser-based incremental/idle game where you:
 - **Click Intensity System**: Build momentum for temporary generator boosts
 
 ### 🎭 Character Evolution
-Progress through 5 characters based on viral "Italian Brainrot" AI memes:
+Progress through 5 characters based on viral AI memes:
 1. **[Ballerina Cappuccina](https://knowyourmeme.com/memes/ballerina-cappuccina-italian-brainrot)** - Coffee cup ballerina from viral TikTok AI memes
 2. **[Bombardiro Crocodilo](https://knowyourmeme.com/memes/bombardiro-crocodilo-italian-brainrot)** - Flying crocodile bomber plane hybrid
 3. **Tung Tung Tung Sahur** - Indonesian brainrot character (crossover with Italian memes)
@@ -44,10 +44,11 @@ Progress through 5 characters based on viral "Italian Brainrot" AI memes:
 ## 🚀 How to Play
 
 ### Getting Started
-1. **Click the character** in the center to earn your first Brainrot Points
-2. **Buy your first generator** from the shop on the left
-3. **Watch the Auto BP/sec** counter increase as generators work automatically
-4. **Keep clicking** to build intensity and boost generator efficiency
+1. **Enter the pin code**: `123456` to access the game
+2. **Click the character** in the center to earn your first Brainrot Points
+3. **Buy your first generator** from the shop on the left
+4. **Watch the Auto BP/sec** counter increase as generators work automatically
+5. **Keep clicking** to build intensity and boost generator efficiency
 
 ### Progression Strategy
 1. **Balance clicking and generators** - clicking builds intensity, generators provide steady income
@@ -57,11 +58,17 @@ Progress through 5 characters based on viral "Italian Brainrot" AI memes:
 5. **Experiment with different upgrade paths** to optimize your strategy
 
 ### Understanding the UI
-- **Top Header**: Shows total Brainrot Points and current stats
+- **Top Header**: Shows total Brainrot Points and control buttons (🚪 Logout, 🗑️ Reset)
 - **Left Panel**: Shop with generators and upgrades
 - **Center**: Main character, intensity meter (left), evolution meter (right)
 - **Intensity Meter**: Shows current click momentum and generator bonus
 - **Evolution Meter**: Progress toward next character unlock
+
+### Game Controls
+- **Pin Code Access**: Enter `123456` on the login screen
+- **🚪 Logout Button**: Return to login screen (saves progress)
+- **🗑️ Reset Button**: Delete all progress and start over
+- **🚀 NEXT CHARACTER**: Appears when evolution is ready
 
 ## 🛠️ Technical Details
 
